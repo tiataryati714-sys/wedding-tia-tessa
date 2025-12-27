@@ -11,6 +11,9 @@
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
+<!-- Font Awesome (Icon Copy) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 :root{
     --primary:#6f8f6f;
@@ -233,8 +236,26 @@ document.write(`<div class="col-4 col-md-3">
 <!-- GIFT -->
 <section id="gift" class="section bg-light text-center">
 <h2 class="section-title">Tanda Kasih</h2>
-<p>Bank BRI<br><strong id="rek">123456</strong><br>a.n. Tia Taryati</p>
-<button class="btn btn-main" onclick="copyRek()">Salin Rekening</button>
+
+<div class="d-flex flex-column align-items-center gap-4">
+
+<div class="card card-wedding p-4" style="max-width:360px;width:100%">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Logo_BRI.png" style="height:32px" class="mx-auto mb-2">
+<p><strong>123456</strong><br>a.n. Tia Taryati</p>
+<button class="btn btn-main w-100" onclick="copyText('123456')">
+<i class="fa-regular fa-copy"></i> Salin Rekening
+</button>
+</div>
+
+<div class="card card-wedding p-4" style="max-width:360px;width:100%">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" style="height:28px" class="mx-auto mb-2">
+<p><strong>08211</strong><br>a.n. Tia Taryati</p>
+<button class="btn btn-main w-100" onclick="copyText('08211')">
+<i class="fa-regular fa-copy"></i> Salin Nomor
+</button>
+</div>
+
+</div>
 </section>
 
 <!-- KOMENTAR -->
@@ -244,7 +265,7 @@ document.write(`<div class="col-4 col-md-3">
 <div class="card card-wedding p-4 mb-4">
 <input id="nama" class="form-control mb-3" placeholder="Nama">
 <textarea id="pesan" class="form-control mb-3" rows="3" placeholder="Ucapan & doa"></textarea>
-<button class="btn btn-main w-100" onclick="kirimKomentar()">Kirim</button>
+<button class="btn btn-main w-100">Kirim</button>
 </div>
 <div id="daftarKomentar"></div>
 </div>
@@ -272,9 +293,9 @@ document.getElementById("opening").style.display="none";
 function showImg(src){
 document.getElementById("modalImg").src=src;
 }
-function copyRek(){
-navigator.clipboard.writeText("123456");
-alert("Nomor rekening disalin");
+function copyText(text){
+navigator.clipboard.writeText(text);
+alert("Berhasil disalin: " + text);
 }
 
 /* COUNTDOWN */
