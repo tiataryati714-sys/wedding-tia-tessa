@@ -11,6 +11,9 @@
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 :root{
     --primary:#6f8f6f;
@@ -99,16 +102,6 @@ body{
     font-weight:600;
 }
 
-/* GALLERY */
-.gallery img{
-    border-radius:16px;
-    cursor:pointer;
-    transition:.3s;
-}
-.gallery img:hover{
-    transform:scale(1.05);
-}
-
 /* FOOTER */
 footer{
     background:var(--primary);
@@ -120,6 +113,11 @@ footer{
 </head>
 
 <body>
+
+<!-- AUDIO -->
+<audio id="bgMusic" loop>
+    <source src="musik.mp3" type="audio/mpeg">
+</audio>
 
 <!-- OPENING -->
 <div id="opening">
@@ -142,9 +140,7 @@ footer{
 <ul class="navbar-nav ms-auto">
 <li class="nav-item"><a class="nav-link" href="#couple">Mempelai</a></li>
 <li class="nav-item"><a class="nav-link" href="#event">Acara</a></li>
-<li class="nav-item"><a class="nav-link" href="#gallery">Galeri</a></li>
 <li class="nav-item"><a class="nav-link" href="#gift">Gift</a></li>
-<li class="nav-item"><a class="nav-link" href="#comment">Ucapan</a></li>
 </ul>
 </div>
 </div>
@@ -163,16 +159,18 @@ footer{
 <!-- COUPLE -->
 <section id="couple" class="section text-center">
 <h2 class="section-title">Assalamu’alaikum</h2>
-<p class="mb-5">Dengan memohon rahmat dan ridho Allah SWT,<br>
+<p class="mb-5">
+Dengan memohon rahmat dan ridho Allah SWT,<br>
 kami bermaksud mengundang Bapak/Ibu/Saudara/i<br>
-untuk menghadiri pernikahan kami</p>
+untuk menghadiri acara tasyakur pernikahan kami
+</p>
 
 <div class="row justify-content-center g-4">
 <div class="col-md-4">
 <div class="card card-wedding p-4">
 <img src="wanita.jpeg" class="rounded-circle mx-auto mb-3" style="width:160px;height:160px;object-fit:cover">
 <h5>Tia Taryati</h5>
-<p>Putri dari<br><strong>Tisna</strong><br><strong>Widaningsih</strong></p>
+<p>Putri dari<br><strong>Bapak Tisna</strong><br><strong>Ibu Widaningsih</strong></p>
 </div>
 </div>
 
@@ -180,7 +178,7 @@ untuk menghadiri pernikahan kami</p>
 <div class="card card-wedding p-4">
 <img src="pria.jpeg" class="rounded-circle mx-auto mb-3" style="width:160px;height:160px;object-fit:cover">
 <h5>Tessa Yanuar Firmansyah</h5>
-<p>Putra dari<br><strong>Rukman</strong><br><strong>Ade Wiwi</strong></p>
+<p>Putra dari<br><strong>Bapak Rukman</strong><br><strong>Ibu Ade Wiwi</strong></p>
 </div>
 </div>
 </div>
@@ -188,18 +186,17 @@ untuk menghadiri pernikahan kami</p>
 
 <!-- EVENT -->
 <section id="event" class="section bg-light text-center">
-<h2 class="section-title">Detail Acara</h2>
-<div class="row justify-content-center g-4">
-<div class="col-md-4">
+<h2 class="section-title">Tasyakuran</h2>
+
+<div class="row justify-content-center">
+<div class="col-md-5">
 <div class="card card-wedding p-4">
-<h6>Akad Nikah</h6>
-<p>08.00 WIB</p>
-</div>
-</div>
-<div class="col-md-4">
-<div class="card card-wedding p-4">
-<h6>Resepsi</h6>
+<p class="mb-2"><strong>Kamis, 15 Januari 2026</strong></p>
 <p>10.00 – 12.00 WIB</p>
+
+<a href="https://www.google.com/maps/place/SAUNG+SAWAH+SUKAMAJU/" target="_blank" class="btn btn-main mt-3">
+<i class="fa-solid fa-location-dot"></i> Lihat Lokasi
+</a>
 </div>
 </div>
 </div>
@@ -216,76 +213,61 @@ untuk menghadiri pernikahan kami</p>
 </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery" class="section text-center">
-<h2 class="section-title">Galeri</h2>
-<div class="row gallery g-3 justify-content-center">
-<script>
-for(let i=1;i<=6;i++){
-document.write(`<div class="col-4 col-md-3">
-<img src="foto ${i}.jpg" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imgModal" onclick="showImg(this.src)">
-</div>`);
-}
-</script>
-</div>
-</section>
-
 <!-- GIFT -->
 <section id="gift" class="section bg-light text-center">
 <h2 class="section-title">Tanda Kasih</h2>
-<p>Bank BRI<br><strong id="rek">123456</strong><br>a.n. Tia Taryati</p>
-<button class="btn btn-main" onclick="copyRek()">Salin Rekening</button>
+
+<div class="d-flex flex-column align-items-center gap-4">
+
+<div class="card card-wedding p-4" style="max-width:360px;width:100%">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Logo_BRI.png" style="height:32px" class="mx-auto mb-2">
+<p><strong>010401057423500</strong><br>a.n. Tia Taryati</p>
+<button class="btn btn-main w-100" onclick="copyText('010401057423500')">
+<i class="fa-regular fa-copy"></i> Salin Rekening
+</button>
+</div>
+
+<div class="card card-wedding p-4" style="max-width:360px;width:100%">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" style="height:28px" class="mx-auto mb-2">
+<p><strong>083896996504</strong><br>a.n. Tia Taryati</p>
+<button class="btn btn-main w-100" onclick="copyText('083896996504')">
+<i class="fa-regular fa-copy"></i> Salin Nomor
+</button>
+</div>
+
+</div>
 </section>
 
-<!-- KOMENTAR -->
-<section id="comment" class="section text-center">
-<h2 class="section-title">Ucapan & Doa</h2>
-<div class="container" style="max-width:600px">
-<div class="card card-wedding p-4 mb-4">
-<input id="nama" class="form-control mb-3" placeholder="Nama">
-<textarea id="pesan" class="form-control mb-3" rows="3" placeholder="Ucapan & doa"></textarea>
-<button class="btn btn-main w-100" onclick="kirimKomentar()">Kirim</button>
-</div>
-<div id="daftarKomentar"></div>
-</div>
-</section>
-
+<!-- FOOTER -->
 <footer>
 <p>Terima kasih atas doa & restunya</p>
 <strong>Tia & Tessa</strong>
 </footer>
-
-<!-- MODAL -->
-<div class="modal fade" id="imgModal">
-<div class="modal-dialog modal-dialog-centered modal-lg">
-<img id="modalImg" class="img-fluid rounded">
-</div>
-</div>
 
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
 function openInvitation(){
-document.getElementById("opening").style.display="none";
-}
-function showImg(src){
-document.getElementById("modalImg").src=src;
-}
-function copyRek(){
-navigator.clipboard.writeText("123456");
-alert("Nomor rekening disalin");
+    document.getElementById("opening").style.display="none";
+    const music=document.getElementById("bgMusic");
+    music.volume=0.6;
+    music.play();
 }
 
-/* COUNTDOWN */
+function copyText(text){
+    navigator.clipboard.writeText(text);
+    alert("Berhasil disalin: " + text);
+}
+
 const target=new Date("2026-01-15T08:00:00").getTime();
 setInterval(()=>{
-const now=new Date().getTime();
-let d=target-now;if(d<0)d=0;
-days.innerText=Math.floor(d/(1000*60*60*24));
-hours.innerText=Math.floor((d%(1000*60*60*24))/(1000*60*60));
-minutes.innerText=Math.floor((d%(1000*60*60))/(1000*60));
-seconds.innerText=Math.floor((d%(1000*60))/1000);
+    const now=new Date().getTime();
+    let d=target-now;if(d<0)d=0;
+    days.innerText=Math.floor(d/(1000*60*60*24));
+    hours.innerText=Math.floor((d%(1000*60*60*24))/(1000*60*60));
+    minutes.innerText=Math.floor((d%(1000*60*60))/(1000*60));
+    seconds.innerText=Math.floor((d%(1000*60))/1000);
 },1000);
 </script>
 
