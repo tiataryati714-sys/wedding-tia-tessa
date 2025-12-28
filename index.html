@@ -3,32 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Tia & Tessa Wedding</title>
-
-<!-- MATIKAN ZOOM -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 :root{
-    --primary:#6f8f6f;
-    --soft:#eef4ee;
-    --dark:#4a5a4a;
+    --pink:#ff8fab;
+    --peach:#ffd6a5;
+    --mint:#caffbf;
+    --lav:#bdb2ff;
+    --sky:#a0c4ff;
+    --dark:#4a4a4a;
 }
-
 html{scroll-behavior:smooth}
-
 body{
     font-family:'Montserrat',sans-serif;
     color:var(--dark);
-    background:#fafcf9;
+    background:linear-gradient(180deg,#fff,#fff5f8);
+    margin:0;
 }
 
 /* OPENING */
@@ -36,102 +36,196 @@ body{
     position:fixed;
     inset:0;
     background:
-        linear-gradient(rgba(255,255,255,.88),rgba(255,255,255,.88)),
+        linear-gradient(135deg,rgba(255,143,171,.85),rgba(160,196,255,.85)),
         url('foto 1.jpg') center/cover no-repeat;
     z-index:9999;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
+    color:white;
     transition:opacity .4s ease;
 }
 #opening h1{
-    font-family:'Playfair Display',serif;
-    font-size:48px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:56px;
+    font-weight:700;
+}
+#opening button{
+    background:white;
+    color:#ff5c8a;
+    font-weight:600;
+    border-radius:40px;
 }
 
 /* NAVBAR */
 .navbar{
     background:white;
-    box-shadow:0 6px 20px rgba(0,0,0,.05);
+    box-shadow:0 6px 25px rgba(0,0,0,.06);
 }
 .navbar-brand{
-    font-family:'Playfair Display',serif;
+    font-family:'Cormorant Garamond',serif;
+    font-size:26px;
+    font-weight:700;
+    color:#ff5c8a !important;
 }
+.nav-link{font-weight:500}
 
-/* SECTION + ANIMASI */
+/* SECTION */
 .section{
-    padding:90px 15px;
+    padding:95px 15px;
     opacity:0;
     transform:translateY(40px);
     transition:all .8s ease;
 }
-.section.show{
-    opacity:1;
-    transform:none;
-}
-
+.section.show{opacity:1;transform:none}
 .section-title{
-    font-family:'Playfair Display',serif;
-    font-size:34px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;
+    font-weight:700;
     margin-bottom:35px;
+    color:#ff5c8a;
 }
 
 /* CARD */
 .card-wedding{
     border:none;
-    border-radius:22px;
-    box-shadow:0 18px 40px rgba(0,0,0,.08);
+    border-radius:26px;
     background:white;
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+    transition: transform .4s, opacity .4s;
+}
+.card-wedding:hover{
+    transform: translateY(-8px);
 }
 
 /* HERO */
 .hero{
     min-height:100vh;
     background:
-        linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.9)),
+        linear-gradient(135deg,rgba(255,214,165,.9),rgba(202,255,191,.9)),
         url('foto 1.jpg') center/cover no-repeat;
     display:flex;
     align-items:center;
     text-align:center;
 }
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:58px;
+    font-weight:700;
+}
 
 /* BUTTON */
 .btn-main{
-    background:var(--primary);
+    background:linear-gradient(135deg,#ff8fab,#ff5c8a);
     color:white;
-    border-radius:30px;
-    padding:10px 30px;
+    border-radius:40px;
+    padding:12px 36px;
+    font-weight:600;
+    border:none;
 }
-.btn-main:hover{
-    background:#5c7c5c;
-    color:white;
-}
+.btn-main:hover{opacity:.9;color:white}
 
 /* COUNTDOWN */
-.countdown div{
-    background:var(--soft);
-    border-radius:18px;
-    padding:18px;
-    font-weight:600;
+.countdown-box {
+    background: linear-gradient(135deg, #a0c4ff, #bdb2ff);
+    color: white;
+    border-radius: 20px;
+    padding: 25px 0;
+    font-weight: 700;
+    font-size: 28px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+.countdown-box:hover {transform: translateY(-5px);}
+.countdown-box .label {font-size: 16px;font-weight: 500;margin-top: 6px;}
+@media(max-width: 576px){
+    .countdown-box {padding: 20px 0;font-size: 24px;}
+    .countdown-box .label {font-size: 14px;}
 }
 
 /* DOA */
 .doa-box{
-    background:var(--soft);
-    border-radius:22px;
-    padding:35px;
-    max-width:760px;
+    background:linear-gradient(135deg,#fff,#ffe5ec);
+    border-radius:30px;
+    padding:42px;
+    max-width:780px;
     margin:auto;
     font-style:italic;
 }
 
+/* FORM UCAPAN */
+#doaForm{
+    max-width:600px;
+    margin:auto;
+    text-align:left;
+}
+#doaForm input, #doaForm textarea{
+    width:100%;
+    padding:10px;
+    border-radius:12px;
+    border:1px solid #ccc;
+    margin-bottom:10px;
+}
+#doaForm button{
+    width:100%;
+}
+
+/* DAFTAR UCAPAN */
+#doaList{
+    max-width:780px;
+    margin:20px auto;
+}
+.ucapan-card{
+    background:#fff5f8;
+    border-radius:20px;
+    padding:15px;
+    margin-bottom:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    opacity:0;
+    transform:translateY(20px);
+    transition: all 0.5s ease;
+}
+
 /* FOOTER */
 footer{
-    background:var(--primary);
+    background:linear-gradient(135deg,#ff8fab,#a0c4ff);
     color:white;
-    padding:40px 15px;
+    padding:45px 15px;
     text-align:center;
+}
+footer strong{
+    font-family:'Cormorant Garamond',serif;
+    font-size:26px;
+}
+
+/* CONFETTI */
+.confetti{
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #ff8fab;
+    top: 0;
+    opacity: 0.7;
+    z-index: 9999;
+}
+
+/* TOAST */
+#toast{
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 500;
+    visibility: hidden;
+    z-index: 99999;
+    transition: visibility 0.3s, opacity 0.3s;
+    opacity: 0;
 }
 </style>
 </head>
@@ -149,7 +243,7 @@ footer{
         <p class="mb-1">The Wedding Of</p>
         <h1>Tia & Tessa</h1>
         <p>Kamis, 15 Januari 2026</p>
-        <button type="button" class="btn btn-main mt-3" onclick="openInvitation()">Buka Undangan</button>
+        <button class="btn btn-lg mt-4" onclick="openInvitation()">Buka Undangan</button>
     </div>
 </div>
 
@@ -157,14 +251,15 @@ footer{
 <nav class="navbar navbar-expand-md fixed-top">
 <div class="container">
 <a class="navbar-brand" href="#">Tia & Tessa</a>
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
-<span class="navbar-toggler-icon"></span>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+<i class="fa-solid fa-bars"></i>
 </button>
 <div id="nav" class="collapse navbar-collapse">
 <ul class="navbar-nav ms-auto">
 <li class="nav-item"><a class="nav-link" href="#couple">Mempelai</a></li>
 <li class="nav-item"><a class="nav-link" href="#event">Acara</a></li>
 <li class="nav-item"><a class="nav-link" href="#gift">Gift</a></li>
+<li class="nav-item"><a class="nav-link" href="#doaSection">Doa</a></li>
 </ul>
 </div>
 </div>
@@ -192,16 +287,16 @@ untuk menghadiri acara tasyakur pernikahan kami
 <div class="row justify-content-center g-4">
 <div class="col-md-4">
 <div class="card card-wedding p-4">
-<img src="wanita.jpeg" class="rounded-circle mx-auto mb-3" style="width:160px;height:160px;object-fit:cover">
-<h5>Tia Taryati</h5>
+<img src="wanita.jpeg" alt="Tia Taryati" class="rounded-circle mx-auto mb-3" style="width:160px;height:160px;object-fit:cover">
+<h5 style="font-family:'Cormorant Garamond',serif;font-weight:700">Tia Taryati</h5>
 <p>Putri dari<br><strong>Bapak Tisna</strong><br><strong>Ibu Widaningsih</strong></p>
 </div>
 </div>
 
 <div class="col-md-4">
 <div class="card card-wedding p-4">
-<img src="pria.jpeg" class="rounded-circle mx-auto mb-3" style="width:160px;height:160px;object-fit:cover">
-<h5>Tessa Yanuar Firmansyah</h5>
+<img src="pria.jpeg" alt="Tessa Yanuar Firmansyah" class="rounded-circle mx-auto mb-3" style="width:160px;height:160px;object-fit:cover">
+<h5 style="font-family:'Cormorant Garamond',serif;font-weight:700">Tessa Yanuar Firmansyah</h5>
 <p>Putra dari<br><strong>Bapak Rukman</strong><br><strong>Ibu Ade Wiwi</strong></p>
 </div>
 </div>
@@ -209,7 +304,7 @@ untuk menghadiri acara tasyakur pernikahan kami
 </section>
 
 <!-- EVENT -->
-<section id="event" class="section bg-light text-center">
+<section id="event" class="section text-center">
 <h2 class="section-title">Tasyakuran</h2>
 <p><strong>Kamis, 15 Januari 2026</strong><br>10.00 – 12.00 WIB</p>
 <a href="https://maps.app.goo.gl/inRJgu2B5ZUBP1gx5" target="_blank" class="btn btn-main mt-3">
@@ -217,35 +312,44 @@ untuk menghadiri acara tasyakur pernikahan kami
 </a>
 </section>
 
-<!-- DOA -->
-<section class="section text-center">
-<h2 class="section-title">Doa & Harapan</h2>
-<div class="doa-box">
-“Semoga Allah SWT menyatukan dan memberkahi kedua mempelai, melimpahkan kebaikan dalam setiap keadaan baik suka maupun duka serta menjadikan rumah tangga yang dibangun senantiasa diliputi ketenteraman, cinta, dan kasih sayang (sakinah, mawaddah, warahmah)”
-<br><br>
-<span style="font-style:normal;font-weight:500">Aamiin Ya Rabbal ‘Alamin</span>
-</div>
-</section>
-
 <!-- COUNTDOWN -->
 <section class="section text-center">
 <h2 class="section-title">Menuju Hari Bahagia</h2>
 <div class="row countdown justify-content-center g-3">
-<div class="col-3 col-md-2"><div><span id="days">0</span><br>Hari</div></div>
-<div class="col-3 col-md-2"><div><span id="hours">0</span><br>Jam</div></div>
-<div class="col-3 col-md-2"><div><span id="minutes">0</span><br>Menit</div></div>
-<div class="col-3 col-md-2"><div><span id="seconds">0</span><br>Detik</div></div>
+    <div class="col-6 col-sm-3">
+        <div class="countdown-box">
+            <span id="days">0</span>
+            <div class="label">Hari</div>
+        </div>
+    </div>
+    <div class="col-6 col-sm-3">
+        <div class="countdown-box">
+            <span id="hours">0</span>
+            <div class="label">Jam</div>
+        </div>
+    </div>
+    <div class="col-6 col-sm-3">
+        <div class="countdown-box">
+            <span id="minutes">0</span>
+            <div class="label">Menit</div>
+        </div>
+    </div>
+    <div class="col-6 col-sm-3">
+        <div class="countdown-box">
+            <span id="seconds">0</span>
+            <div class="label">Detik</div>
+        </div>
+    </div>
 </div>
 </section>
 
 <!-- GIFT -->
-<section id="gift" class="section bg-light text-center">
+<section id="gift" class="section text-center">
 <h2 class="section-title">Tanda Kasih</h2>
 
 <div class="d-flex flex-column align-items-center gap-4">
-
 <div class="card card-wedding p-4" style="max-width:360px;width:100%">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/512px-Bank_Mandiri_logo_2016.svg.png" style="height:28px" class="mx-auto mb-2">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/512px-Bank_Mandiri_logo_2016.svg.png" alt="Bank Mandiri" style="height:28px" class="mx-auto mb-2">
 <p><strong>1770010184791</strong><br>a.n. Tessa Yanuar Firmansyah</p>
 <button class="btn btn-main w-100" onclick="copyText('1770010184791')">
 <i class="fa-regular fa-copy"></i> Salin Rekening
@@ -253,7 +357,7 @@ untuk menghadiri acara tasyakur pernikahan kami
 </div>
 
 <div class="card card-wedding p-4" style="max-width:360px;width:100%">
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Logo_BRI.png" style="height:32px" class="mx-auto mb-2">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Logo_BRI.png" alt="Bank BRI" style="height:32px" class="mx-auto mb-2">
 <p><strong>010401057423500</strong><br>a.n. Tia Taryati</p>
 <button class="btn btn-main w-100" onclick="copyText('010401057423500')">
 <i class="fa-regular fa-copy"></i> Salin Rekening
@@ -261,7 +365,7 @@ untuk menghadiri acara tasyakur pernikahan kami
 </div>
 
 <div class="card card-wedding p-4" style="max-width:360px;width:100%">
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" style="height:28px" class="mx-auto mb-2">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="Dana" style="height:28px" class="mx-auto mb-2">
 <p><strong>083896996504</strong><br>a.n. Tia Taryati</p>
 <button class="btn btn-main w-100" onclick="copyText('083896996504')">
 <i class="fa-regular fa-copy"></i> Salin Nomor
@@ -271,57 +375,156 @@ untuk menghadiri acara tasyakur pernikahan kami
 </div>
 </section>
 
+<!-- DOA FORM DI BAWAH GIFT -->
+<section id="doaSection" class="section text-center">
+<h2 class="section-title">Kirim Doa & Harapan</h2>
+
+<form id="doaForm">
+<input type="text" id="nama" placeholder="Nama" required>
+<textarea id="pesan" rows="3" placeholder="Doa / Harapan" required></textarea>
+<button type="submit" class="btn btn-main">Kirim</button>
+</form>
+
+<div id="doaList"></div>
+</section>
+
 <footer>
 <p>Terima kasih atas doa & restunya</p>
 <strong>Tia & Tessa</strong>
 </footer>
 
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
 function openInvitation(){
     const opening = document.getElementById("opening");
-    const music = document.getElementById("bgMusic");
-
     opening.style.opacity = "0";
     opening.style.pointerEvents = "none";
-    setTimeout(()=>opening.style.display="none",400);
+    setTimeout(() => opening.style.display = "none", 400);
 
-    music.volume = 0.6;
-    music.play().catch(()=>{});
+    // mainkan musik setelah buka undangan
+    const bgMusic = document.getElementById("bgMusic");
+    bgMusic.play().catch(() => {
+        console.log("Autoplay diblokir, musik akan dimainkan setelah interaksi pengguna.");
+    });
 }
 
 function copyText(text){
-    navigator.clipboard.writeText(text);
-    alert("Berhasil disalin: " + text);
+    navigator.clipboard.writeText(text).then(()=>{
+        const toast = document.getElementById("toast");
+        toast.innerText = "Berhasil disalin: " + text;
+        toast.style.visibility = "visible";
+        toast.style.opacity = "1";
+        setTimeout(()=>{
+            toast.style.opacity = "0";
+            setTimeout(()=>{toast.style.visibility="hidden";},300);
+        },2000);
+    }).catch(()=>{ alert("Gagal menyalin!"); });
 }
 
-/* COUNTDOWN */
-const target=new Date("2026-01-15T08:00:00").getTime();
+// COUNTDOWN
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minutesEl = document.getElementById("minutes");
+const secondsEl = document.getElementById("seconds");
+const target = new Date("2026-01-15T08:00:00").getTime();
 setInterval(()=>{
-    const now=new Date().getTime();
-    let d=target-now;if(d<0)d=0;
-    days.innerText=Math.floor(d/(1000*60*60*24));
-    hours.innerText=Math.floor((d%(1000*60*60*24))/(1000*60*60));
-    minutes.innerText=Math.floor((d%(1000*60*60))/(1000*60));
-    seconds.innerText=Math.floor((d%(1000*60))/1000);
+    const now = new Date().getTime();
+    let d = target - now; if(d<0)d=0;
+    daysEl.innerText = Math.floor(d/(1000*60*60*24));
+    hoursEl.innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+    minutesEl.innerText = Math.floor((d%(1000*60*60))/(1000*60));
+    secondsEl.innerText = Math.floor((d%(1000*60))/1000);
 },1000);
 
-/* SCROLL ANIMATION FIX */
-const sections=document.querySelectorAll(".section");
-const observer=new IntersectionObserver(entries=>{
+// SCROLL ANIMATION
+const sections = document.querySelectorAll(".section");
+const observer = new IntersectionObserver(entries=>{
     entries.forEach(e=>{
-        if(e.isIntersecting)e.target.classList.add("show");
+        if(e.isIntersecting) e.target.classList.add("show");
     });
 },{threshold:0.15});
 sections.forEach(s=>observer.observe(s));
 
-window.addEventListener("load",()=>{
-    sections.forEach(sec=>{
-        if(sec.getBoundingClientRect().top < window.innerHeight-100){
-            sec.classList.add("show");
-        }
+// CONFETTI
+function createConfetti(){
+    for(let i=0;i<30;i++){
+        const confetti=document.createElement("div");
+        confetti.className="confetti";
+        confetti.style.left=Math.random()*100+"%";
+        confetti.style.backgroundColor=`hsl(${Math.random()*360},70%,60%)`;
+        document.body.appendChild(confetti);
+        let fall = confetti.animate([{transform:`translateY(0)`},{transform:`translateY(100vh)`}],{duration:3000+Math.random()*2000,iterations:1});
+        fall.onfinish = ()=> confetti.remove();
+    }
+}
+const coupleSection = document.getElementById("couple");
+const confettiObserver = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting) createConfetti();
     });
+},{threshold:0.5});
+confettiObserver.observe(coupleSection);
+</script>
+
+<!-- FIREBASE REALTIME DATABASE -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDvoMesyAJzNvudO1uOXw7PXkquyOxEgqw",
+  authDomain: "wedding1512026.firebaseapp.com",
+  databaseURL: "https://wedding1512026-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "wedding1512026",
+  storageBucket: "wedding1512026.firebasestorage.app",
+  messagingSenderId: "723821154564",
+  appId: "1:723821154564:web:2ef2ae240297c7a3b38051",
+  measurementId: "G-JY9N6LJLHE"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const doaForm = document.getElementById("doaForm");
+const doaList = document.getElementById("doaList");
+
+function formatDate(timestamp){
+  const d = new Date(timestamp);
+  const day = d.getDate();
+  const monthNames = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+  const month = monthNames[d.getMonth()];
+  const year = d.getFullYear();
+  const hour = d.getHours().toString().padStart(2,'0');
+  const minute = d.getMinutes().toString().padStart(2,'0');
+  return `${day} ${month} ${year}, ${hour}:${minute} WIB`;
+}
+
+doaForm.addEventListener("submit", (e)=>{
+  e.preventDefault();
+  const nama = document.getElementById("nama").value.trim();
+  const pesan = document.getElementById("pesan").value.trim();
+  if(nama && pesan){
+    const timestamp = Date.now();
+    push(ref(db,'ucapan'), { nama, pesan, timestamp });
+    doaForm.reset();
+  }
+});
+
+onValue(ref(db,'ucapan'), (snapshot)=>{
+  doaList.innerHTML = '';
+  snapshot.forEach(childSnap=>{
+    const data = childSnap.val();
+    const waktu = formatDate(data.timestamp);
+    const card = document.createElement("div");
+    card.className = "ucapan-card";
+    card.innerHTML = `<strong>${data.nama}</strong> <small style="display:block;color:#555;font-size:12px;">${waktu}</small><p>${data.pesan}</p>`;
+    doaList.prepend(card);
+    setTimeout(()=>{card.style.opacity=1; card.style.transform="translateY(0)";},50);
+  });
 });
 </script>
 
