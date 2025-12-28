@@ -23,7 +23,7 @@
     --sky:#a0c4ff;
     --dark:#4a4a4a;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;}
 body{
     font-family:'Montserrat',sans-serif;
     color:var(--dark);
@@ -35,6 +35,25 @@ body{
 body.no-scroll {
     overflow: hidden;
     height: 100vh;
+}
+
+/* FOTO MEMPELAI SIMETRIS */
+.img-couple{
+    width:160px;
+    height:160px;
+    object-fit:cover;
+    border-radius:50%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* LOGO BANK TETAP ORIGINAL */
+.img-bank{
+    height:28px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 /* OPENING */
@@ -62,6 +81,10 @@ body.no-scroll {
     color:#ff5c8a;
     font-weight:600;
     border-radius:40px;
+    transition: transform 0.3s;
+}
+#opening button:hover{
+    transform: scale(1.05);
 }
 
 /* NAVBAR */
@@ -75,7 +98,13 @@ body.no-scroll {
     font-weight:700;
     color:#ff5c8a !important;
 }
-.nav-link{font-weight:500}
+.nav-link{
+    font-weight:500;
+    transition: color 0.3s;
+}
+.nav-link:hover{
+    color:#ff8fab;
+}
 
 /* SECTION */
 .section{
@@ -129,8 +158,13 @@ body.no-scroll {
     padding:12px 36px;
     font-weight:600;
     border:none;
+    transition: all 0.3s ease;
 }
-.btn-main:hover{opacity:.9;color:white}
+.btn-main:hover{
+    opacity:.9;
+    color:white;
+    transform: scale(1.05);
+}
 
 /* COUNTDOWN */
 .countdown-box {
@@ -200,6 +234,7 @@ footer{
     color:white;
     padding:45px 15px;
     text-align:center;
+    text-shadow:0 1px 3px rgba(0,0,0,.3);
 }
 footer strong{
     font-family:'Cormorant Garamond',serif;
@@ -209,10 +244,8 @@ footer strong{
 /* CONFETTI */
 .confetti{
     position: fixed;
-    width: 10px;
-    height: 10px;
-    background: #ff8fab;
-    top: 0;
+    width: 8px;
+    height: 8px;
     opacity: 0.7;
     z-index: 9999;
 }
@@ -249,7 +282,7 @@ footer strong{
         <p class="mb-1">The Wedding Of</p>
         <h1>Tia & Tessa</h1>
         <p>Kamis, 15 Januari 2026</p>
-        <button class="btn btn-lg mt-4" onclick="openInvitation()">Buka Undangan</button>
+        <button class="btn btn-lg mt-4" onclick="openInvitation()" aria-label="Buka Undangan">Buka Undangan</button>
     </div>
 </div>
 
@@ -257,7 +290,7 @@ footer strong{
 <nav class="navbar navbar-expand-md fixed-top">
 <div class="container">
 <a class="navbar-brand" href="#">Tia & Tessa</a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
 <i class="fa-solid fa-bars"></i>
 </button>
 <div id="nav" class="collapse navbar-collapse">
@@ -293,7 +326,7 @@ untuk menghadiri acara tasyakur pernikahan kami
 <div class="row justify-content-center g-4">
 <div class="col-md-4">
 <div class="card card-wedding p-4">
-<img src="wanita.jpeg" alt="Tia Taryati" class="rounded-circle mx-auto mb-3" style="width:160px;height:160px;object-fit:cover" oncontextmenu="return false;">
+<img src="wanita.jpeg" alt="Tia Taryati, mempelai wanita" class="img-couple" oncontextmenu="return false;">
 <h5 style="font-family:'Cormorant Garamond',serif;font-weight:700">Tia Taryati</h5>
 <p>Putri dari<br><strong>Bapak Tisna</strong><br><strong>Ibu Widaningsih</strong></p>
 </div>
@@ -301,7 +334,7 @@ untuk menghadiri acara tasyakur pernikahan kami
 
 <div class="col-md-4">
 <div class="card card-wedding p-4">
-<img src="pria.jpeg" alt="Tessa Yanuar Firmansyah" class="rounded-circle mx-auto mb-3" style="width:160px;height:160px;object-fit:cover" oncontextmenu="return false;">
+<img src="pria.jpeg" alt="Tessa Yanuar Firmansyah, mempelai pria" class="img-couple" oncontextmenu="return false;">
 <h5 style="font-family:'Cormorant Garamond',serif;font-weight:700">Tessa Yanuar Firmansyah</h5>
 <p>Putra dari<br><strong>Bapak Rukman</strong><br><strong>Ibu Ade Wiwi</strong></p>
 </div>
@@ -313,7 +346,7 @@ untuk menghadiri acara tasyakur pernikahan kami
 <section id="event" class="section text-center">
 <h2 class="section-title">Lokasi Acara Syukuran</h2>
 <p><strong>Kamis, 15 Januari 2026</strong><br>10.00 – 12.00 WIB</p>
-<a href="https://maps.app.goo.gl/inRJgu2B5ZUBP1gx5" target="_blank" class="btn btn-main mt-3">
+<a href="https://maps.app.goo.gl/inRJgu2B5ZUBP1gx5" target="_blank" class="btn btn-main mt-3" aria-label="Lihat Lokasi di Maps">
 <i class="fa-solid fa-location-dot"></i> Lihat Lokasi
 </a>
 </section>
@@ -355,25 +388,25 @@ untuk menghadiri acara tasyakur pernikahan kami
 
 <div class="d-flex flex-column align-items-center gap-4">
 <div class="card card-wedding p-4" style="max-width:360px;width:100%">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/512px-Bank_Mandiri_logo_2016.svg.png" alt="Bank Mandiri" style="height:28px" class="mx-auto mb-2">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/512px-Bank_Mandiri_logo_2016.svg.png" alt="Bank Mandiri" class="img-bank mx-auto mb-2">
 <p><strong>1770010184791</strong><br>a.n. Tessa Yanuar Firmansyah</p>
-<button class="btn btn-main w-100" onclick="copyText('1770010184791')">
+<button class="btn btn-main w-100 copy-btn" data-text="1770010184791">
 <i class="fa-regular fa-copy"></i> Salin Rekening
 </button>
 </div>
 
 <div class="card card-wedding p-4" style="max-width:360px;width:100%">
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Logo_BRI.png" alt="Bank BRI" style="height:32px" class="mx-auto mb-2">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Logo_BRI.png" alt="Bank BRI" class="img-bank mx-auto mb-2">
 <p><strong>010401057423500</strong><br>a.n. Tia Taryati</p>
-<button class="btn btn-main w-100" onclick="copyText('010401057423500')">
+<button class="btn btn-main w-100 copy-btn" data-text="010401057423500">
 <i class="fa-regular fa-copy"></i> Salin Rekening
 </button>
 </div>
 
 <div class="card card-wedding p-4" style="max-width:360px;width:100%">
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="Dana" style="height:28px" class="mx-auto mb-2">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="Dana" class="img-bank mx-auto mb-2">
 <p><strong>083896996504</strong><br>a.n. Tia Taryati</p>
-<button class="btn btn-main w-100" onclick="copyText('083896996504')">
+<button class="btn btn-main w-100 copy-btn" data-text="083896996504">
 <i class="fa-regular fa-copy"></i> Salin Nomor
 </button>
 </div>
@@ -381,7 +414,7 @@ untuk menghadiri acara tasyakur pernikahan kami
 </div>
 </section>
 
-<!-- DOA FORM DI BAWAH GIFT -->
+<!-- DOA FORM -->
 <section id="doaSection" class="section text-center">
 <h2 class="section-title">Kirim Doa & Harapan</h2>
 
@@ -412,31 +445,30 @@ function openInvitation(){
     const opening = document.getElementById("opening");
     opening.style.opacity = "0";
     opening.style.pointerEvents = "none";
-    setTimeout(() => opening.style.display = "none", 400);
-
-    // Aktifkan scroll
+    setTimeout(()=>opening.style.display="none",400);
     document.body.classList.remove('no-scroll');
-
-    // mainkan musik
     const bgMusic = document.getElementById("bgMusic");
-    bgMusic.play().catch(() => {
-        console.log("Autoplay diblokir, musik akan dimainkan setelah interaksi pengguna.");
-    });
+    bgMusic.play().catch(()=>console.log("Autoplay diblokir."));
 }
 
 /* COPY REKENING */
-function copyText(text){
-    navigator.clipboard.writeText(text).then(()=>{
-        const toast = document.getElementById("toast");
-        toast.innerText = "Berhasil disalin: " + text;
-        toast.style.visibility = "visible";
-        toast.style.opacity = "1";
-        setTimeout(()=>{
-            toast.style.opacity = "0";
-            setTimeout(()=>{toast.style.visibility="hidden";},300);
-        },2000);
-    }).catch(()=>{ alert("Gagal menyalin!"); });
-}
+document.querySelectorAll(".copy-btn").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+        const text = btn.getAttribute("data-text");
+        navigator.clipboard.writeText(text).then(()=>{
+            const toast = document.getElementById("toast");
+            toast.innerText = "Berhasil disalin: " + text;
+            toast.style.visibility = "visible";
+            toast.style.opacity = "1";
+            btn.innerHTML='<i class="fa-solid fa-check"></i> Disalin';
+            setTimeout(()=>{btn.innerHTML='<i class="fa-regular fa-copy"></i> Salin';},2000);
+            setTimeout(()=>{
+                toast.style.opacity="0";
+                setTimeout(()=>{toast.style.visibility="hidden";},300);
+            },2000);
+        }).catch(()=>alert("Gagal menyalin!"));
+    });
+});
 
 // COUNTDOWN
 const daysEl = document.getElementById("days");
@@ -447,43 +479,39 @@ const target = new Date("2026-01-15T08:00:00").getTime();
 setInterval(()=>{
     const now = new Date().getTime();
     let d = target - now; if(d<0)d=0;
-    daysEl.innerText = Math.floor(d/(1000*60*60*24));
-    hoursEl.innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
-    minutesEl.innerText = Math.floor((d%(1000*60*60))/(1000*60));
-    secondsEl.innerText = Math.floor((d%(1000*60))/1000);
+    daysEl.innerText=Math.floor(d/(1000*60*60*24));
+    hoursEl.innerText=Math.floor((d%(1000*60*60*24))/(1000*60*60));
+    minutesEl.innerText=Math.floor((d%(1000*60*60))/(1000*60));
+    secondsEl.innerText=Math.floor((d%(1000*60))/1000);
 },1000);
 
 // SCROLL ANIMATION
 const sections = document.querySelectorAll(".section");
 const observer = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-        if(e.isIntersecting) e.target.classList.add("show");
-    });
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
 },{threshold:0.15});
 sections.forEach(s=>observer.observe(s));
 
-// CONFETTI
+// CONFETTI (lebih ringan)
 function createConfetti(){
-    for(let i=0;i<30;i++){
+    for(let i=0;i<15;i++){
         const confetti=document.createElement("div");
         confetti.className="confetti";
         confetti.style.left=Math.random()*100+"%";
         confetti.style.backgroundColor=`hsl(${Math.random()*360},70%,60%)`;
         document.body.appendChild(confetti);
-        let fall = confetti.animate([{transform:`translateY(0)`},{transform:`translateY(100vh)`}],{duration:3000+Math.random()*2000,iterations:1});
+        let fall = confetti.animate([{transform:`translateY(0)`},{transform:`translateY(100vh)`}],{duration:2000+Math.random()*1500,iterations:1});
         fall.onfinish = ()=> confetti.remove();
     }
 }
 const coupleSection = document.getElementById("couple");
 const confettiObserver = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting) createConfetti();
-    });
+    entries.forEach(entry=>{ if(entry.isIntersecting) createConfetti(); });
 },{threshold:0.5});
 confettiObserver.observe(coupleSection);
 </script>
 
-<!-- FIREBASE REALTIME DATABASE -->
+<!-- FIREBASE -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
@@ -505,41 +533,35 @@ const doaForm = document.getElementById("doaForm");
 const doaList = document.getElementById("doaList");
 
 function formatDate(timestamp){
-  const d = new Date(timestamp);
-  const day = d.getDate();
-  const monthNames = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-  const month = monthNames[d.getMonth()];
-  const year = d.getFullYear();
-  const hour = d.getHours().toString().padStart(2,'0');
-  const minute = d.getMinutes().toString().padStart(2,'0');
-  return `${day} ${month} ${year}, ${hour}:${minute} WIB`;
+  const d=new Date(timestamp);
+  const monthNames=["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+  return `${d.getDate()} ${monthNames[d.getMonth()]} ${d.getFullYear()}, ${d.getHours().toString().padStart(2,'0')}:${d.getMinutes().toString().padStart(2,'0')} WIB`;
 }
 
-doaForm.addEventListener("submit", (e)=>{
+doaForm.addEventListener("submit",(e)=>{
   e.preventDefault();
-  const nama = document.getElementById("nama").value.trim();
-  const pesan = document.getElementById("pesan").value.trim();
-  if(nama && pesan){
-    const timestamp = Date.now();
-    push(ref(db,'ucapan'), { nama, pesan, timestamp });
-    doaForm.reset();
-  }
+  const nama=document.getElementById("nama").value.trim();
+  const pesan=document.getElementById("pesan").value.trim();
+  if(nama && pesan && pesan.length<=300){
+    const timestamp=Date.now();
+    try{ push(ref(db,'ucapan'),{nama,pesan,timestamp}); doaForm.reset(); }
+    catch(err){ alert("Gagal mengirim, coba lagi."); }
+  }else if(pesan.length>300){ alert("Pesan maksimal 300 karakter!"); }
 });
 
-onValue(ref(db,'ucapan'), (snapshot)=>{
-  doaList.innerHTML = '';
+onValue(ref(db,'ucapan'),(snapshot)=>{
+  doaList.innerHTML='';
   snapshot.forEach(childSnap=>{
-    const data = childSnap.val();
-    const waktu = formatDate(data.timestamp);
-    const card = document.createElement("div");
-    card.className = "ucapan-card";
-    card.innerHTML = `<strong>${data.nama}</strong> <small style="display:block;color:#555;font-size:12px;">${waktu}</small><p>${data.pesan}</p>`;
+    const data=childSnap.val();
+    const waktu=formatDate(data.timestamp);
+    const card=document.createElement("div");
+    card.className="ucapan-card";
+    card.innerHTML=`<strong>${data.nama}</strong> <small style="display:block;color:#555;font-size:12px;">${waktu}</small><p>${data.pesan}</p>`;
     doaList.prepend(card);
-    setTimeout(()=>{card.style.opacity=1; card.style.transform="translateY(0)";},50);
+    setTimeout(()=>{card.style.opacity=1;card.style.transform="translateY(0)";},50);
   });
 });
 </script>
 
 </body>
 </html>
-
