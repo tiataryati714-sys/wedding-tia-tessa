@@ -31,6 +31,12 @@ body{
     margin:0;
 }
 
+/* NON SCROLL SEBELUM BUKA UNDANGAN */
+body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
 /* OPENING */
 #opening{
     position:fixed;
@@ -230,7 +236,7 @@ footer strong{
 </style>
 </head>
 
-<body>
+<body class="no-scroll">
 
 <!-- AUDIO -->
 <audio id="bgMusic" loop>
@@ -287,7 +293,7 @@ untuk menghadiri acara tasyakur pernikahan kami
 <div class="row justify-content-center g-4">
 <div class="col-md-4">
 <div class="card card-wedding p-4">
-<img src="wanita.jpeg" alt="Tia Taryati" class="rounded-circle mx-auto mb-3" style="width:160px;height:160px;object-fit:cover">
+<img src="wanita.jpeg" alt="Tia Taryati" class="rounded-circle mx-auto mb-3" style="width:160px;height:160px;object-fit:cover" oncontextmenu="return false;">
 <h5 style="font-family:'Cormorant Garamond',serif;font-weight:700">Tia Taryati</h5>
 <p>Putri dari<br><strong>Bapak Tisna</strong><br><strong>Ibu Widaningsih</strong></p>
 </div>
@@ -295,7 +301,7 @@ untuk menghadiri acara tasyakur pernikahan kami
 
 <div class="col-md-4">
 <div class="card card-wedding p-4">
-<img src="pria.jpeg" alt="Tessa Yanuar Firmansyah" class="rounded-circle mx-auto mb-3" style="width:160px;height:160px;object-fit:cover">
+<img src="pria.jpeg" alt="Tessa Yanuar Firmansyah" class="rounded-circle mx-auto mb-3" style="width:160px;height:160px;object-fit:cover" oncontextmenu="return false;">
 <h5 style="font-family:'Cormorant Garamond',serif;font-weight:700">Tessa Yanuar Firmansyah</h5>
 <p>Putra dari<br><strong>Bapak Rukman</strong><br><strong>Ibu Ade Wiwi</strong></p>
 </div>
@@ -401,19 +407,24 @@ untuk menghadiri acara tasyakur pernikahan kami
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+/* OPEN INVITATION */
 function openInvitation(){
     const opening = document.getElementById("opening");
     opening.style.opacity = "0";
     opening.style.pointerEvents = "none";
     setTimeout(() => opening.style.display = "none", 400);
 
-    // mainkan musik setelah buka undangan
+    // Aktifkan scroll
+    document.body.classList.remove('no-scroll');
+
+    // mainkan musik
     const bgMusic = document.getElementById("bgMusic");
     bgMusic.play().catch(() => {
         console.log("Autoplay diblokir, musik akan dimainkan setelah interaksi pengguna.");
     });
 }
 
+/* COPY REKENING */
 function copyText(text){
     navigator.clipboard.writeText(text).then(()=>{
         const toast = document.getElementById("toast");
