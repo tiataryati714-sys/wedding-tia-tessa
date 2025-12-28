@@ -9,6 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+<script>
+    // Skrip untuk mereset URL setiap kali refresh agar kembali ke index.html tanpa #anchor
+    if (window.location.hash) {
+        window.history.replaceState("", document.title, window.location.pathname + window.location.search);
+    }
+</script>
+
 <style>
 /* --- KONSEP: LUXURY MIDNIGHT FIXED --- */
 :root {
@@ -146,7 +153,6 @@ h1, h2, h3, h5, .section-title, .countdown-box {
     display: block; margin-top: 5px;
 }
 
-/* --- PERUBAHAN DI SINI: MENGHAPUS FILTER GRAYSCALE --- */
 .img-bank { 
     height: 35px; 
     margin-bottom: 20px; 
@@ -162,13 +168,21 @@ h1, h2, h3, h5, .section-title, .countdown-box {
     overflow: hidden;
 }
 
+/* --- PERBAIKAN WARNA INPUT & PLACEHOLDER --- */
 #doaForm input, #doaForm textarea {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--text-muted);
-    color: #fff !important;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #ffffff !important;
     border-radius: 0;
     padding: 15px;
 }
+
+#doaForm input::placeholder, 
+#doaForm textarea::placeholder {
+    color: #cbd5e1 !important; /* Warna abu-abu terang agar tidak gelap */
+    opacity: 1;
+}
+
 .ucapan-card {
     background: rgba(255,255,255,0.05);
     border-left: 3px solid var(--gold);
@@ -347,7 +361,7 @@ footer strong { font-size: 32px; color: var(--gold); margin-top: 20px; display: 
 
 <footer>
     <div class="container text-center">
-        <p class="fst-italic">"Love is not about how many days, months, or years you have been together. Love is about how much you love each other every single day."</p>
+        <p class="fst-italic">"Merupakan sebuah kehormatan dan kebahagiaan bagi kami jika Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu bagi kami. Terima Kasih"</p>
         <strong>Tia & Tessa</strong>
     </div>
 </footer>
@@ -447,4 +461,3 @@ onValue(ref(db,'ucapan'),snapshot=>{
 
 </body>
 </html>
-
