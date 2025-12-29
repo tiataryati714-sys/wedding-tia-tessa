@@ -1,209 +1,204 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>The Wedding of Tia & Tessa</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>The Wedding of Tia & Tessa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<script>
-    // Skrip untuk mereset URL setiap kali refresh agar kembali ke index.html tanpa #anchor
-    if (window.location.hash) {
-        window.history.replaceState("", document.title, window.location.pathname + window.location.search);
-    }
-</script>
+    <style>
+        /* --- KONSEP: LUXURY MIDNIGHT FIXED --- */
+        :root {
+            --primary-dark: #0f172a;
+            --primary-light: #1e293b;
+            --gold: #d4af37;
+            --gold-dim: #a68a2d;
+            --text-light: #f1f5f9;
+            --text-muted: #cbd5e1;
+        }
 
-<style>
-/* --- KONSEP: LUXURY MIDNIGHT FIXED --- */
-:root {
-    --primary-dark: #0f172a;    /* Navy Gelap */
-    --primary-light: #1e293b;   /* Navy Terang */
-    --gold: #d4af37;            /* Emas Mewah */
-    --gold-dim: #a68a2d;        /* Emas Redup */
-    --text-light: #f1f5f9;      /* Putih Terang */
-    --text-muted: #cbd5e1;      /* Abu-abu Terang */
-}
+        html { 
+            scroll-behavior: smooth;
+            /* MODIFIKASI: Mencegah zoom lewat CSS touch-action */
+            touch-action: pan-x pan-y;
+        }
 
-html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-light) !important; 
+            background-color: var(--primary-dark);
+            background-image: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+            margin: 0;
+            overflow-x: hidden;
+        }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--text-light) !important; 
-    background-color: var(--primary-dark);
-    background-image: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
-    margin: 0;
-    overflow-x: hidden;
-}
+        body.no-scroll { overflow: hidden; height: 100vh; }
 
-body.no-scroll { overflow: hidden; height: 100vh; }
+        .card {
+            background-color: rgba(255, 255, 255, 0.05); 
+            color: var(--text-light);
+        }
+        .text-muted {
+            color: var(--text-muted) !important;
+        }
+        a { text-decoration: none; color: var(--gold); }
+        a:hover { color: var(--text-light); }
 
-.card {
-    background-color: rgba(255, 255, 255, 0.05); 
-    color: var(--text-light);
-}
-.text-muted {
-    color: var(--text-muted) !important;
-}
-a { text-decoration: none; color: var(--gold); }
-a:hover { color: var(--text-light); }
+        h1, h2, h3, h5, .section-title, .countdown-box {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--gold);
+        }
 
-h1, h2, h3, h5, .section-title, .countdown-box {
-    font-family: 'Cormorant Garamond', serif;
-    color: var(--gold);
-}
+        /* OPENING (COVER) */
+        #opening {
+            position: fixed; inset: 0;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('foto 1.jpg') center/cover no-repeat;
+            z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            border: 10px solid var(--primary-dark);
+            transition: opacity 0.8s ease;
+        }
+        #opening h1 { font-size: 64px; margin-bottom: 10px; font-weight: 400; letter-spacing: 2px; }
+        #opening p { letter-spacing: 3px; text-transform: uppercase; font-size: 12px; color: var(--text-muted); }
 
-/* OPENING (COVER) */
-#opening {
-    position: fixed; inset: 0;
-    background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('foto 1.jpg') center/cover no-repeat;
-    z-index: 9999;
-    display: flex; align-items: center; justify-content: center;
-    text-align: center;
-    border: 10px solid var(--primary-dark);
-    transition: opacity 0.8s ease;
-}
-#opening h1 { font-size: 64px; margin-bottom: 10px; font-weight: 400; letter-spacing: 2px; }
-#opening p { letter-spacing: 3px; text-transform: uppercase; font-size: 12px; color: var(--text-muted); }
+        .btn-luxury {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 12px 40px;
+            border-radius: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .btn-luxury:hover {
+            background: var(--gold);
+            color: var(--primary-dark);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
 
-.btn-luxury {
-    background: transparent;
-    color: var(--gold);
-    border: 1px solid var(--gold);
-    padding: 12px 40px;
-    border-radius: 0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 12px;
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-.btn-luxury:hover {
-    background: var(--gold);
-    color: var(--primary-dark);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-}
+        .navbar {
+            background: rgba(15, 23, 42, 0.95); 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 15px 0;
+        }
+        .navbar-brand { font-size: 24px; color: var(--gold) !important; font-weight: 600; cursor: pointer; }
+        .nav-link { color: var(--text-light) !important; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; }
+        .nav-link:hover { color: var(--gold) !important; }
+        .navbar-toggler { border-color: var(--gold) !important; }
+        .navbar-toggler i { color: var(--gold) !important; }
 
-.navbar {
-    background: rgba(15, 23, 42, 0.95); 
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    padding: 15px 0;
-}
-.navbar-brand { font-size: 24px; color: var(--gold) !important; font-weight: 600; }
-.nav-link { color: var(--text-light) !important; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
-.nav-link:hover { color: var(--gold) !important; }
-.navbar-toggler { border-color: var(--gold) !important; }
-.navbar-toggler i { color: var(--gold) !important; }
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), var(--primary-dark)), url('foto 1.jpg') center/cover no-repeat;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 30px; bottom: 30px; left: 30px; right: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.3); pointer-events: none;
+        }
+        .hero h1 { 
+            font-size: 72px; font-style: italic; margin: 20px 0; 
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5); 
+        }
+        .hero p { color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
 
-.hero {
-    min-height: 100vh;
-    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), var(--primary-dark)), url('foto 1.jpg') center/cover no-repeat;
-    display: flex; align-items: center; justify-content: center; text-align: center;
-    position: relative;
-}
-.hero::before {
-    content: ''; position: absolute; top: 30px; bottom: 30px; left: 30px; right: 30px;
-    border: 1px solid rgba(212, 175, 55, 0.3); pointer-events: none;
-}
-.hero h1 { 
-    font-size: 72px; font-style: italic; margin: 20px 0; 
-    text-shadow: 0 4px 10px rgba(0,0,0,0.5); 
-}
-.hero p { color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .section { padding: 100px 20px; opacity: 0; transform: translateY(30px); transition: all 1s ease; }
+        .section.show { opacity: 1; transform: none; }
+        .section-title { font-size: 42px; margin-bottom: 50px; position: relative; display: inline-block; }
+        .section-title::after {
+            content: ''; display: block; width: 60px; height: 2px; background: var(--gold); margin: 15px auto 0;
+        }
 
-.section { padding: 100px 20px; opacity: 0; transform: translateY(30px); transition: all 1s ease; }
-.section.show { opacity: 1; transform: none; }
-.section-title { font-size: 42px; margin-bottom: 50px; position: relative; display: inline-block; }
-.section-title::after {
-    content: ''; display: block; width: 60px; height: 2px; background: var(--gold); margin: 15px auto 0;
-}
+        .card-wedding {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 4px;
+            padding: 40px 20px;
+        }
 
-.card-wedding {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 4px;
-    padding: 40px 20px;
-    transition: all 0.4s;
-}
+        .img-couple {
+            width: 200px; height: 260px;
+            object-fit: cover;
+            border-radius: 100px 100px 0 0;
+            border: 2px solid var(--gold);
+            padding: 5px;
+            margin: 0 auto 20px;
+            display: block;
+            -webkit-user-drag: none;
+            user-select: none;
+        }
 
-.img-couple {
-    width: 200px; height: 260px;
-    object-fit: cover;
-    border-radius: 100px 100px 0 0;
-    border: 2px solid var(--gold);
-    padding: 5px;
-    margin: 0 auto 20px;
-    display: block;
-}
+        .countdown-box {
+            border: 1px solid var(--gold);
+            padding: 20px 10px;
+            color: var(--gold);
+            font-size: 32px;
+            background: rgba(15, 23, 42, 0.5);
+        }
+        .countdown-box .label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 2px;
+            display: block; margin-top: 5px;
+        }
 
-.countdown-box {
-    border: 1px solid var(--gold);
-    padding: 20px 10px;
-    color: var(--gold);
-    font-size: 32px;
-    background: rgba(15, 23, 42, 0.5);
-}
-.countdown-box .label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 2px;
-    display: block; margin-top: 5px;
-}
+        .img-bank { 
+            height: 35px; 
+            margin-bottom: 20px; 
+            display: block;
+        }
 
-.img-bank { 
-    height: 35px; 
-    margin-bottom: 20px; 
-    display: block;
-}
+        .card-gift {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 1px solid var(--gold-dim);
+            color: var(--text-light);
+            padding: 30px;
+        }
 
-.card-gift {
-    background: linear-gradient(135deg, #1e293b, #0f172a);
-    border: 1px solid var(--gold-dim);
-    color: var(--text-light);
-    padding: 30px;
-    position: relative;
-    overflow: hidden;
-}
+        #doaForm input, #doaForm textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #ffffff !important;
+            border-radius: 0;
+            padding: 15px;
+        }
 
-/* --- PERBAIKAN WARNA INPUT & PLACEHOLDER --- */
-#doaForm input, #doaForm textarea {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    color: #ffffff !important;
-    border-radius: 0;
-    padding: 15px;
-}
+        #doaForm input::placeholder, 
+        #doaForm textarea::placeholder {
+            color: #cbd5e1 !important;
+        }
 
-#doaForm input::placeholder, 
-#doaForm textarea::placeholder {
-    color: #cbd5e1 !important; /* Warna abu-abu terang agar tidak gelap */
-    opacity: 1;
-}
+        .ucapan-card {
+            background: rgba(255,255,255,0.05);
+            border-left: 3px solid var(--gold);
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
 
-.ucapan-card {
-    background: rgba(255,255,255,0.05);
-    border-left: 3px solid var(--gold);
-    padding: 15px;
-    margin-bottom: 15px;
-    text-align: left;
-}
+        footer {
+            background: #050a15;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+        footer strong { font-size: 32px; color: var(--gold); margin-top: 20px; display: block; }
 
-footer {
-    background: #050a15;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
-    padding: 60px 20px;
-    color: var(--text-muted);
-}
-footer strong { font-size: 32px; color: var(--gold); margin-top: 20px; display: block; }
-
-@media(max-width: 576px){
-    #opening h1 { font-size: 48px; }
-    .hero h1 { font-size: 52px; }
-}
-</style>
+        @media(max-width: 576px){
+            #opening h1 { font-size: 48px; }
+            .hero h1 { font-size: 52px; }
+        }
+    </style>
 </head>
 
 <body class="no-scroll">
@@ -224,16 +219,16 @@ footer strong { font-size: 32px; color: var(--gold); margin-top: 20px; display: 
 
 <nav class="navbar navbar-expand-md fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">T&T</a>
+        <span class="navbar-brand" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">T&T</span>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
             <i class="fa-solid fa-bars"></i>
         </button>
         <div id="nav" class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto text-center">
-                <li class="nav-item"><a class="nav-link" href="#couple">Mempelai</a></li>
-                <li class="nav-item"><a class="nav-link" href="#event">Acara</a></li>
-                <li class="nav-item"><a class="nav-link" href="#gift">Gift</a></li>
-                <li class="nav-item"><a class="nav-link" href="#doaSection">Doa</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="scrollToSection('couple')">Mempelai</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="scrollToSection('event')">Acara</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="scrollToSection('gift')">Gift</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="scrollToSection('doaSection')">Doa</a></li>
             </ul>
         </div>
     </div>
@@ -245,7 +240,7 @@ footer strong { font-size: 32px; color: var(--gold); margin-top: 20px; display: 
         <h1>Tia & Tessa</h1>
         <p>Kamis, 15 . 01 . 2026</p>
         <div class="mt-4">
-            <a href="#couple" class="btn-luxury">Lihat Detail</a>
+            <button onclick="scrollToSection('couple')" class="btn-luxury">Lihat Detail</button>
         </div>
     </div>
 </section>
@@ -258,7 +253,7 @@ footer strong { font-size: 32px; color: var(--gold); margin-top: 20px; display: 
         <div class="row justify-content-center g-5">
             <div class="col-md-5">
                 <div class="card-wedding">
-                    <img src="wanita.jpeg" alt="Tia" class="img-couple" onerror="this.src='https://via.placeholder.com/200x260'">
+                    <img src="wanita.jpeg" alt="Tia" class="img-couple" oncontextmenu="return false;" onerror="this.src='https://via.placeholder.com/200x260'">
                     <h3>Tia Taryati</h3>
                     <p class="text-muted small">Putri dari<br>Bpk. Tisna & Ibu Widaningsih</p>
                     <a href="https://instagram.com/tiataryatiii" target="_blank" class="text-white"><i class="fa-brands fa-instagram"></i> tiataryatiii</a>
@@ -267,7 +262,7 @@ footer strong { font-size: 32px; color: var(--gold); margin-top: 20px; display: 
 
             <div class="col-md-5">
                 <div class="card-wedding">
-                    <img src="pria.jpeg" alt="Tessa" class="img-couple" onerror="this.src='https://via.placeholder.com/200x260'">
+                    <img src="pria.jpeg" alt="Tessa" class="img-couple" oncontextmenu="return false;" onerror="this.src='https://via.placeholder.com/200x260'">
                     <h3>Tessa Yanuar Firmansyah</h3>
                     <p class="text-muted small">Putra dari<br>Bpk. Rukman & Ibu Ade Wiwi</p>
                     <a href="https://instagram.com/tessa_yf" target="_blank" class="text-white"><i class="fa-brands fa-instagram"></i> tessa_yf</a>
@@ -314,7 +309,7 @@ footer strong { font-size: 32px; color: var(--gold); margin-top: 20px; display: 
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/512px-Bank_Mandiri_logo_2016.svg.png" alt="Mandiri" class="img-bank mx-auto">
                     <h5 class="mt-2 text-white">1770010184791</h5>
                     <p class="small text-muted mb-4">a.n. Tessa Yanuar Firmansyah</p>
-                    <button class="btn-luxury copy-btn w-100" data-text="1770010184791">Copy Number</button>
+                    <button class="btn-luxury copy-btn w-100" data-text="1770010184791">Salin Nomor</button>
                 </div>
             </div>
             
@@ -323,7 +318,7 @@ footer strong { font-size: 32px; color: var(--gold); margin-top: 20px; display: 
                     <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Logo_BRI.png" alt="BRI" class="img-bank mx-auto">
                     <h5 class="mt-2 text-white">010401057423500</h5>
                     <p class="small text-muted mb-4">a.n. Tia Taryati</p>
-                    <button class="btn-luxury copy-btn w-100" data-text="010401057423500">Copy Number</button>
+                    <button class="btn-luxury copy-btn w-100" data-text="010401057423500">Salin Nomor</button>
                 </div>
             </div>
 
@@ -332,7 +327,7 @@ footer strong { font-size: 32px; color: var(--gold); margin-top: 20px; display: 
                     <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="Dana" class="img-bank mx-auto">
                     <h5 class="mt-2 text-white">083896996504</h5>
                     <p class="small text-muted mb-4">a.n. Tia Taryati</p>
-                    <button class="btn-luxury copy-btn w-100" data-text="083896996504">Copy Number</button>
+                    <button class="btn-luxury copy-btn w-100" data-text="083896996504">Salin Nomor</button>
                 </div>
             </div>
         </div>
@@ -373,6 +368,50 @@ footer strong { font-size: 32px; color: var(--gold); margin-top: 20px; display: 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+/* MODIFIKASI: RESET SCROLL KE ATAS SAAT REFRESH */
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+}
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+};
+
+/* MODIFIKASI: CEGAH ZOOM (JESTURE & KEYBOARD) */
+document.addEventListener('touchstart', function (event) {
+    if (event.touches.length > 1) {
+        event.preventDefault();
+    }
+}, { passive: false });
+
+document.addEventListener('keydown', function (event) {
+    if (event.ctrlKey === true && (event.which === 61 || event.which === 107 || event.which === 173 || event.which === 109 || event.which === 187 || event.which === 189)) {
+        event.preventDefault();
+    }
+});
+
+/* FUNGSI ORIGINAL */
+function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        const offset = 70;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+
+        const navMenu = document.getElementById('nav');
+        const bsCollapse = bootstrap.Collapse.getInstance(navMenu);
+        if (bsCollapse) {
+            bsCollapse.hide();
+        }
+    }
+}
+
 function openInvitation(){
     const opening=document.getElementById("opening");
     opening.style.opacity="0";
@@ -461,4 +500,3 @@ onValue(ref(db,'ucapan'),snapshot=>{
 
 </body>
 </html>
-
